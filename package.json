@@ -2,8 +2,8 @@
   "name": "extract-pdf-content",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/index.d.ts",
     "dist/index.cjs",
