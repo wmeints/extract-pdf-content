@@ -1,0 +1,45 @@
+name: Publish Package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check for version change
+        id: version_check
+        run: |
+          git fetch origin main
+          if [ "$(git diff origin/main -- package.json | grep '"version"')" ]; then
+            echo "VERSION_CHANGED=true" >> $GITHUB_OUTPUT
+          else
+            echo "VERSION_CHANGED=false" >> $GITHUB_OUTPUT
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build the package
+        run: npm run build
+
+      - name: Publish to npm
+        if: steps.version_check.outputs.VERSION_CHANGED == 'true'
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+

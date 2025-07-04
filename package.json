@@ -1,0 +1,49 @@
+{
+  "name": "extract-pdf-content",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist/index.d.ts",
+    "dist/index.cjs",
+    "dist/index.cjs.map",
+    "dist/index.mjs",
+    "dist/index.mjs.map"
+  ],
+  "scripts": {
+    "build": "tsc && rollup -c",
+    "test": "vitest"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmeints/extract-pdf-content.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmeints/extract-pdf-content/issues"
+  },
+  "homepage": "https://github.com/wmeints/extract-pdf-content#readme",
+  "dependencies": {
+    "pdfjs-dist": "^5.3.31",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-typescript": "^12.1.4",
+    "@types/node": "^24.0.10",
+    "rollup": "^4.44.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
