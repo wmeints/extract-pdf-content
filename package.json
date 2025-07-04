@@ -1,6 +1,6 @@
 {
   "name": "extract-pdf-content",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -18,7 +18,8 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "type": "module",
